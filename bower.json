@@ -1,0 +1,40 @@
+{
+  "name": "ntill",
+  "version": "0.0.0",
+  "description": "Prevent calls to callback until condition is met.",
+  "main": "ntill.deploy.js",
+  "support": "ntill.support.js",
+  "authors": [
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "prevent",
+    "call",
+    "callback",
+    "until",
+    "condition",
+    "met",
+    "ntill"
+  ],
+  "homepage": "https://github.com/volkovasystems/ntill",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "burne": "^0.3.0",
+    "condev": "^0.16.0",
+    "falzy": "^0.20.0",
+    "harden": "^0.22.0",
+    "kloak": "^0.27.0",
+    "mrkd": "^0.8.0",
+    "protype": "^0.22.0",
+    "shft": "^0.2.0",
+    "truly": "^0.19.0",
+    "zelf": "^0.12.0"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "ntill",
+  "version": "0.0.0",
+  "description": "Prevent calls to callback until condition is met.",
+  "main": "ntill.js",
+  "support": "ntill.support.js",
+  "deploy": "ntill.deploy.js",
+  "browser": "ntill.deploy.js",
+  "scripts": {
+    "build": "babel ntill.js --out-file ntill.support.js --source-maps && webpack --progress --display-modules",
+    "test": "mocha ntill-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/ntill.git"
+  },
+  "keywords": [
+    "prevent",
+    "call",
+    "callback",
+    "until",
+    "condition",
+    "met",
+    "ntill"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/ntill/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/ntill#readme",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "burne": "^0.3.0",
+    "condev": "^0.16.0",
+    "falzy": "^0.20.0",
+    "harden": "^0.22.0",
+    "kloak": "^0.27.0",
+    "mrkd": "^0.8.0",
+    "protype": "^0.22.0",
+    "shft": "^0.2.0",
+    "truly": "^0.19.0",
+    "zelf": "^0.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "source-map-loader": "^0.2.1",
+    "webpack": "^3.0.0"
+  }
+}
