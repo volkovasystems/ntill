@@ -1,11 +1,13 @@
 {
   "name": "ntill",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Prevent calls to callback until condition is met.",
   "main": "ntill.deploy.js",
   "support": "ntill.support.js",
   "authors": [
-    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+    "Vinse Vinalon <vinsevinalon@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
@@ -26,11 +28,11 @@
     "tests"
   ],
   "dependencies": {
-    "burne": "^0.3.0",
+    "burne": "^0.4.0",
     "condev": "^0.16.0",
     "falzy": "^0.20.0",
     "harden": "^0.22.0",
-    "kloak": "^0.27.0",
+    "kloak": "^0.28.0",
     "mrkd": "^0.8.0",
     "protype": "^0.22.0",
     "shft": "^0.2.0",
