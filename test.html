@@ -1,8 +1,53 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<script
-			type="application/javascript"
-			src="./ntill.deploy.js">
-		</script>
+		<title>ntill unit test</title>
+
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+
+		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+
+		<script type="application/javascript" src="./ntill.deploy.js"></script>
 	</head>
+
+	<body>
+		<div id="qunit"></div>
+
+		<div id="qunit-fixture"></div>
+
+		<script type="application/javascript">
+			QUnit.test( "ntill unit test", function( assert ) {
+
+				let callback = ntill( function test( error, result ){
+					assert.deepEqual( result, [ 1, 2, 3 ], "should be deeply equal" );
+
+					console.log( "ok" );
+				}, 3 );
+
+				callback( null, 1 );
+				callback( null, 2 );
+				callback( null, 3 );
+
+				let method = ntill( function test( error, result ){
+					assert.deepEqual( result, [ "yeah", "right" ], "should be deeply equal" );
+
+					console.log( "ok" );
+				}, false, true );
+
+				method( null, "yeah" );
+				method( null, "right" );
+				method( null, false );
+
+				let procedure = ntill( function test( error, result ){
+					assert.equal( result, "yeah", "should be equal" );
+
+					console.log( "ok" );
+				}, true, true );
+
+				procedure( null, "yeah" );
+				procedure( null, true );
+				
+			} );
+		</script>
+	</body>
 </html>
