@@ -1,14 +1,17 @@
 {
   "name": "ntill",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Prevent calls to callback until condition is met.",
   "main": "ntill.js",
   "support": "ntill.support.js",
   "deploy": "ntill.deploy.js",
   "browser": "ntill.deploy.js",
   "scripts": {
-    "build": "babel ntill.js --out-file ntill.support.js --source-maps && webpack --progress --display-modules",
-    "test": "mocha ntill-test.js"
+	"pristine": "rsetmod clean && flxc execute ./.install.sh",
+	"clear": "rsetmod clean --clear",
+	"build": "babel ntill.js --out-file ntill.support.js --source-maps && webpack --progress --display-modules",
+	"pretest": "npm run clear && npm run build",
+	"test": "node ntill-test.js"
   },
   "repository": {
     "type": "git",

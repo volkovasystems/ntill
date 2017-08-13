@@ -1,6 +1,6 @@
 {
   "name": "ntill",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Prevent calls to callback until condition is met.",
   "main": "ntill.deploy.js",
   "support": "ntill.support.js",
