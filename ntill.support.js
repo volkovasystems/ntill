@@ -58,7 +58,6 @@
                                                                                                                                                                                                                 			"harden": "harden",
                                                                                                                                                                                                                 			"kloak": "kloak",
                                                                                                                                                                                                                 			"mrkd": "mrkd",
-                                                                                                                                                                                                                			"protype": "protype",
                                                                                                                                                                                                                 			"shft": "shft",
                                                                                                                                                                                                                 			"truly": "truly",
                                                                                                                                                                                                                 			"zelf": "zelf"
@@ -72,7 +71,6 @@ var falzy = require("falzy");
 var harden = require("harden");
 var kloak = require("kloak");
 var mrkd = require("mrkd");
-var protype = require("protype");
 var shft = require("shft");
 var truly = require("truly");
 var zelf = require("zelf");
@@ -95,7 +93,7 @@ var ntill = function ntill(method, condition, evaluate) {
 
 	var self = zelf(this);
 
-	if (falzy(method) || !protype(method, FUNCTION)) {
+	if (falzy(method) || typeof method != "function") {
 		method = function method() {return self;};
 	}
 
@@ -103,7 +101,7 @@ var ntill = function ntill(method, condition, evaluate) {
 		return method;
 	}
 
-	if (protype(condition, NUMBER) && !evaluate) {
+	if (typeof condition == "number" && !evaluate) {
 		condition--;
 	}
 
@@ -129,7 +127,7 @@ var ntill = function ntill(method, condition, evaluate) {
 				return result;
 			}
 
-		} else if (protype(condition, NUMBER)) {
+		} else if (typeof condition == "number") {
 			if (condition > 0) {
 				condition--;
 
