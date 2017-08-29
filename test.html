@@ -1,53 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ntill unit test</title>
+		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+		<title>test:ntill</title>
 
-		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
-
-		<script type="application/javascript" src="./ntill.deploy.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
 	</head>
 
 	<body>
-		<div id="qunit"></div>
+		<div id="mocha"></div>
 
-		<div id="qunit-fixture"></div>
+		<script type="application/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
 
 		<script type="application/javascript">
-			QUnit.test( "ntill unit test", function( assert ) {
+			mocha.setup( "bdd" );
+		</script>
 
-				let callback = ntill( function test( error, result ){
-					assert.deepEqual( result, [ 1, 2, 3 ], "should be equal to [ 1, 2, 3 ]" );
+		<script type="application/javascript" src="./test.deploy.js"></script>
 
-					console.log( "ok" );
-				}, 3 );
-
-				callback( null, 1 );
-				callback( null, 2 );
-				callback( null, 3 );
-
-				let method = ntill( function test( error, result ){
-					assert.deepEqual( result, [ "yeah", "right" ], "should be equal to [ 'yeah', 'right' ]" );
-
-					console.log( "ok" );
-				}, false, true );
-
-				method( null, "yeah" );
-				method( null, "right" );
-				method( null, false );
-
-				let procedure = ntill( function test( error, result ){
-					assert.equal( result, "yeah", "should be equal to 'yeah'" );
-
-					console.log( "ok" );
-				}, true, true );
-
-				procedure( null, "yeah" );
-				procedure( null, true );
-
-			} );
+		<script type="application/javascript">
+			mocha.run( );
 		</script>
 	</body>
 </html>
