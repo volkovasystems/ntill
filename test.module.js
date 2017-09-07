@@ -51,10 +51,11 @@
 	@end-include
 */
 
-const assert = require( "should" );
+const assert = require( "should/as-function" );
 
 //: @server:
 const ntill = require( "./ntill.js" );
+const mrkd = require( "mrkd" );
 //: @end-server
 
 //: @client:
@@ -67,25 +68,172 @@ const path = require( "path" );
 
 
 //: @server:
-
 describe( "ntill", ( ) => {
 
-} );
+	describe( "`ntill with method and condition parameter`", ( ) => {
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let callback = ntill( function test( error, result ){
+				assert.deepEqual( result, [ 1, 2, 3 ], "should be equal to [ 1, 2, 3 ]" );
+			}, 3 );
 
+			callback( null, 1 );
+			callback( null, 2 );
+			callback( null, 3 );
+		} );
+	} );
+
+	describe( "`ntill with method, condition and evaluate parameter`", ( ) => {
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let method = ntill( function test( error, result ){
+				assert.deepEqual( result, [ "yeah", "right" ], "should be equal to [ 'yeah', 'right' ]" );
+			}, false, true );
+
+			method( null, "yeah" );
+			method( null, "right" );
+			method( null, false );
+		} );
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let procedure = ntill( function test( error, result ){
+				assert.equal( result, "yeah", "should be equal to 'yeah'" );
+			}, true, true );
+
+			procedure( null, "yeah" );
+			procedure( null, true );
+		} );
+
+	} );
+
+} );
 //: @end-server
 
 
 //: @client:
-
 describe( "ntill", ( ) => {
-} );
 
+	describe( "`ntill with method and condition parameter`", ( ) => {
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let callback = ntill( function test( error, result ){
+				assert.deepEqual( result, [ 1, 2, 3 ], "should be equal to [ 1, 2, 3 ]" );
+			}, 3 );
+
+			callback( null, 1 );
+			callback( null, 2 );
+			callback( null, 3 );
+		} );
+	} );
+
+	describe( "`ntill with method, condition and evaluate parameter`", ( ) => {
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let method = ntill( function test( error, result ){
+				assert.deepEqual( result, [ "yeah", "right" ], "should be equal to [ 'yeah', 'right' ]" );
+			}, false, true );
+
+			method( null, "yeah" );
+			method( null, "right" );
+			method( null, false );
+		} );
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let procedure = ntill( function test( error, result ){
+				assert.equal( result, "yeah", "should be equal to 'yeah'" );
+			}, true, true );
+
+			procedure( null, "yeah" );
+			procedure( null, true );
+		} );
+
+	} );
+
+} );
 //: @end-client
 
 
 //: @bridge:
-
 describe( "ntill", ( ) => {
-} );
 
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
+
+	describe( "`ntill with method and condition parameter`", ( ) => {
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					let callback = ntill( function test( error, result ){ }, 3 );
+
+					callback( null, 1 );
+					callback( null, 2 );
+					callback( null, 3 );
+
+					let test = mrkd( Symbol( "called-once" ), callback ) &&
+						mrkd( Symbol( "list" ), callback ) &&
+						mrkd( Symbol( "result" ), callback );
+
+					return test;
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, true );
+		} );
+	} );
+
+	describe( "`ntill with method, condition and evaluate parameter`", ( ) => {
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					let method = ntill( function test( error, result ){
+						assert.deepEqual( result, [ "yeah", "right" ], "should be equal to [ 'yeah', 'right' ]" );
+					}, false, true );
+
+					method( null, "yeah" );
+					method( null, "right" );
+					method( null, false );
+
+					let test = mrkd( Symbol( "called-once" ), method ) &&
+						mrkd( Symbol( "list" ), method ) &&
+						mrkd( Symbol( "result" ), method );
+
+					return test;
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, true );
+		} );
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					let procedure = ntill( function test( error, result ){
+						assert.equal( result, "yeah", "should be equal to 'yeah'" );
+					}, true, true );
+
+					procedure( null, "yeah" );
+					procedure( null, true );
+
+					let test = mrkd( Symbol( "called-once" ), procedure ) &&
+						mrkd( Symbol( "list" ), procedure ) &&
+						mrkd( Symbol( "result" ), procedure );
+
+					return test;
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, true );
+
+		} );
+
+	} );
+
+} );
 //: @end-bridge

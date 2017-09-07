@@ -1,16 +1,60 @@
 {
-  "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
-    "pending": 0,
-    "failures": 0,
-    "start": "2017-08-29T05:50:07.725Z",
-    "end": "2017-08-29T05:50:07.725Z",
-    "duration": 0
-  },
-  "tests": [],
-  "pending": [],
-  "failures": [],
-  "passes": []
+	"stats": {
+		"suites": 3,
+		"tests": 3,
+		"passes": 3,
+		"pending": 0,
+		"failures": 0,
+		"start": "2017-09-07T07:06:13.752Z",
+		"end": "2017-09-07T07:06:13.775Z",
+		"duration": 23
+	},
+	"tests": [
+		{
+			"title": "should prevent calls to callback until condition is met",
+			"fullTitle": "ntill `ntill with method and condition parameter` should prevent calls to callback until condition is met",
+			"duration": 12,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should prevent calls to callback until condition is met",
+			"fullTitle": "ntill `ntill with method, condition and evaluate parameter` should prevent calls to callback until condition is met",
+			"duration": 4,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should prevent calls to callback until condition is met",
+			"fullTitle": "ntill `ntill with method, condition and evaluate parameter` should prevent calls to callback until condition is met",
+			"duration": 3,
+			"currentRetry": 0,
+			"err": {}
+		}
+	],
+	"pending": [],
+	"failures": [],
+	"passes": [
+		{
+			"title": "should prevent calls to callback until condition is met",
+			"fullTitle": "ntill `ntill with method and condition parameter` should prevent calls to callback until condition is met",
+			"duration": 12,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should prevent calls to callback until condition is met",
+			"fullTitle": "ntill `ntill with method, condition and evaluate parameter` should prevent calls to callback until condition is met",
+			"duration": 4,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should prevent calls to callback until condition is met",
+			"fullTitle": "ntill `ntill with method, condition and evaluate parameter` should prevent calls to callback until condition is met",
+			"duration": 3,
+			"currentRetry": 0,
+			"err": {}
+		}
+	]
 }

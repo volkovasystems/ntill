@@ -1,0 +1,139 @@
+{
+	"state": {
+		"passed": 3,
+		"failed": 0,
+		"skipped": 0
+	},
+	"start": "2017-09-07T07:06:14.948Z",
+	"end": "2017-09-07T07:06:50.114Z",
+	"capabilities": {
+		"browserName": "chrome",
+		"chromeOptions": {
+			"args": [
+				"disable-gpu",
+				"headless"
+			]
+		},
+		"proxy": null
+	},
+	"host": "127.0.0.1",
+	"port": 4444,
+	"baseUrl": "http://localhost",
+	"framework": "mocha",
+	"mochaOpts": {
+		"timeout": 10000,
+		"ui": "bdd"
+	},
+	"suites": [
+		{
+			"name": "ntill",
+			"duration": 0,
+			"start": "2017-09-07T07:06:48.998Z",
+			"tests": [],
+			"hooks": []
+		},
+		{
+			"name": "ntill",
+			"duration": 936,
+			"start": "2017-09-07T07:06:48.999Z",
+			"end": "2017-09-07T07:06:49.935Z",
+			"tests": [],
+			"hooks": [
+				{
+					"start": "2017-09-07T07:06:49.001Z",
+					"end": "2017-09-07T07:06:49.001Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "ntill",
+					"associatedTest": "should prevent calls to callback until condition is met"
+				},
+				{
+					"start": "2017-09-07T07:06:49.795Z",
+					"end": "2017-09-07T07:06:49.795Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "ntill",
+					"associatedTest": "should prevent calls to callback until condition is met"
+				},
+				{
+					"start": "2017-09-07T07:06:49.796Z",
+					"end": "2017-09-07T07:06:49.796Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "ntill",
+					"associatedTest": "should prevent calls to callback until condition is met"
+				},
+				{
+					"start": "2017-09-07T07:06:49.881Z",
+					"end": "2017-09-07T07:06:49.881Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "ntill",
+					"associatedTest": "should prevent calls to callback until condition is met"
+				},
+				{
+					"start": "2017-09-07T07:06:49.881Z",
+					"end": "2017-09-07T07:06:49.881Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "ntill",
+					"associatedTest": "should prevent calls to callback until condition is met"
+				},
+				{
+					"start": "2017-09-07T07:06:49.934Z",
+					"end": "2017-09-07T07:06:49.934Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "ntill",
+					"associatedTest": "should prevent calls to callback until condition is met"
+				},
+				{
+					"start": "2017-09-07T07:06:49.935Z",
+					"end": "2017-09-07T07:06:49.935Z",
+					"duration": 0,
+					"title": "\"after all\" hook",
+					"associatedSuite": "ntill"
+				}
+			]
+		},
+		{
+			"name": "`ntill with method and condition parameter`",
+			"duration": 797,
+			"start": "2017-09-07T07:06:48.999Z",
+			"end": "2017-09-07T07:06:49.796Z",
+			"tests": [
+				{
+					"name": "should prevent calls to callback until condition is met",
+					"start": "2017-09-07T07:06:49.000Z",
+					"end": "2017-09-07T07:06:49.795Z",
+					"duration": 795,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`ntill with method, condition and evaluate parameter`",
+			"duration": 138,
+			"start": "2017-09-07T07:06:49.796Z",
+			"end": "2017-09-07T07:06:49.934Z",
+			"tests": [
+				{
+					"name": "should prevent calls to callback until condition is met",
+					"start": "2017-09-07T07:06:49.796Z",
+					"end": "2017-09-07T07:06:49.881Z",
+					"duration": 85,
+					"state": "pass"
+				},
+				{
+					"name": "should prevent calls to callback until condition is met",
+					"start": "2017-09-07T07:06:49.881Z",
+					"end": "2017-09-07T07:06:49.933Z",
+					"duration": 52,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		}
+	]
+}

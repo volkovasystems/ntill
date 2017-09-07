@@ -51,10 +51,11 @@
 	@end-include
 */
 
-const assert = require( "should" );
+const assert = require( "should/as-function" );
 
 //: @server:
 const ntill = require( "./ntill.js" );
+const mrkd = require( "mrkd" );
 //: @end-server
 
 
@@ -63,11 +64,44 @@ const ntill = require( "./ntill.js" );
 
 
 //: @server:
-
 describe( "ntill", ( ) => {
 
-} );
+	describe( "`ntill with method and condition parameter`", ( ) => {
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let callback = ntill( function test( error, result ){
+				assert.deepEqual( result, [ 1, 2, 3 ], "should be equal to [ 1, 2, 3 ]" );
+			}, 3 );
 
+			callback( null, 1 );
+			callback( null, 2 );
+			callback( null, 3 );
+		} );
+	} );
+
+	describe( "`ntill with method, condition and evaluate parameter`", ( ) => {
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let method = ntill( function test( error, result ){
+				assert.deepEqual( result, [ "yeah", "right" ], "should be equal to [ 'yeah', 'right' ]" );
+			}, false, true );
+
+			method( null, "yeah" );
+			method( null, "right" );
+			method( null, false );
+		} );
+
+		it( "should prevent calls to callback until condition is met", ( ) => {
+			let procedure = ntill( function test( error, result ){
+				assert.equal( result, "yeah", "should be equal to 'yeah'" );
+			}, true, true );
+
+			procedure( null, "yeah" );
+			procedure( null, true );
+		} );
+
+	} );
+
+} );
 //: @end-server
 
 
